@@ -1,0 +1,63 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="600*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" >
+            <ListView Name="Agent" Width="800">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="140">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"></RowDefinition>
+                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="30*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                                <TextBlock Text="{Binding Title}" Width="auto" FontSize="22"></TextBlock>
+                                <Label FontSize="22"> | </Label>
+                                <TextBlock Text="{Binding AgentType.Title}" Width="auto"  FontSize="22"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                                <Label FontSize="17" >10 продаж за год</Label>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                                <Label FontSize="17" >+7 </Label>
+                                <TextBlock Text="{Binding Phone}" FontSize="17" Width="auto"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                                <Label FontSize="17" >Приоритетность </Label>
+                                <TextBlock Text="{Binding Priority}" FontSize="17" Width="auto"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <WrapPanel Orientation="Horizontal">
+            <StackPanel Margin="60, 20, 20, 0" Height="50" Width="150" >
+                <TextBox SelectionChanged="Search_SelectionChanged" x:Name="Search" Width="150" Height="35" TextWrapping="Wrap"/>
+            </StackPanel>
+            <StackPanel Margin="60, 20, 60, 0" Height="50" Width="150">
+                <ComboBox SelectionChanged="Filtr_SelectionChanged" Name="Filtr" HorizontalAlignment="Center" Width="150" Height="35"/>
+            </StackPanel>
+            <StackPanel Margin="20, 20, 20, 0" Height="50" Width="150">
+                <ComboBox SelectionChanged="Sort_SelectionChanged" Name="Sort" Width="150" Height="35"/>
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Window>
