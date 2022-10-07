@@ -7,40 +7,44 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="149*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="150*"/>
             <RowDefinition Height="600*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" >
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="2" >
             <ListView Name="Agent" Width="800">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Height="140">
+                        <Grid Height="120">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="50*"></RowDefinition>
-                                <RowDefinition Height="30*"></RowDefinition>
-                                <RowDefinition Height="30*"></RowDefinition>
-                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"></ColumnDefinition>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="400"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
                                 <TextBlock Text="{Binding Title}" Width="auto" FontSize="22"></TextBlock>
-                                <Label FontSize="22"> | </Label>
+                                <Label FontSize="22">|</Label>
                                 <TextBlock Text="{Binding AgentType.Title}" Width="auto"  FontSize="22"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                                 <Label FontSize="17" >10 продаж за год</Label>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                                <Label FontSize="17" >+7 </Label>
+                                <Label FontSize="17" >+7</Label>
                                 <TextBlock Text="{Binding Phone}" FontSize="17" Width="auto"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-                                <Label FontSize="17" >Приоритетность </Label>
+                                <Label FontSize="17" >Приоритетность</Label>
                                 <TextBlock Text="{Binding Priority}" FontSize="17" Width="auto"></TextBlock>
                             </StackPanel>
                         </Grid>
@@ -48,7 +52,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <WrapPanel Orientation="Horizontal">
+        <WrapPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,347" Grid.RowSpan="2">
             <StackPanel Margin="60, 20, 20, 0" Height="50" Width="150" >
                 <TextBox SelectionChanged="Search_SelectionChanged" x:Name="Search" Width="150" Height="35" TextWrapping="Wrap"/>
             </StackPanel>
