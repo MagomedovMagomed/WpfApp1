@@ -193,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
